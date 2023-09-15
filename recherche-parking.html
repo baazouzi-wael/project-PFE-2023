@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de Parking - Gestion de Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Recherche de Parking</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="reservation.html">Réserver une Place</a></li>
+            <li><a href="tableau-de-bord.html">Tableau de Bord</a></li>
+            <li><a href="connexion.html">Se Connecter</a></li>
+            <li><a href="detail-parking.html">Details de Parking</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Recherchez un Parking</h2>
+        <form action="resultats-recherche.php" method="get">
+            <label for="location">Emplacement :</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="date">Date :</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="heure">Heure :</label>
+            <input type="time" id="heure" name="heure" required>
+
+            <button type="submit" class="cta-button">Rechercher</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2023 Gestion de Parking. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

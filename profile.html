@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Gestion de Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Profil de l'Utilisateur</h1>
+    </header>
+    <nav>
+        <ul>
+            
+            <li><a href="profile.html">Profil</a></li> 
+            <li><a href="Tableau-de-bord.html">Tableau de Bord</a></li>
+            <li><a href="reservation.html">Réserver une Place</a></li>
+            <li><a href="contacter.html">Contactez-nous</a></li>
+            <li><a href="apropos.html">À Propos</a></li>
+            
+            
+        </ul>
+        
+
+    </nav>
+    <section>
+        <h2>Informations de Profil</h2>
+        <p><strong>Nom :</strong> Wael Bâazouzi</p>
+        <p><strong>Email :</strong> rivalosmario@gmail.com</p>
+        <p><strong>Téléphone :</strong> +216 92 709 773</p>
+        <h2>Historique des Réservations</h2>
+        <ul>
+            <li>Réservation #1 - Parking A, Date: 2023-09-15, Heure: 09:00 - 17:00</li>
+            <li>Réservation #2 - Parking B, Date: 2023-09-16, Heure: 10:00 - 18:00</li>
+            <!-- Ajoutez d'autres réservations à afficher ici -->
+        </ul>
+        <button class="logout-button" id="logout-button">Se Déconnecter</button>
+    </section>
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Sélectionnez le bouton de déconnexion par son ID
+    var logoutButton = document.getElementById("logout-button");
+
+    // Ajoutez un gestionnaire d'événements pour le clic sur le bouton de déconnexion
+    logoutButton.addEventListener("click", function () {
+       
+        
+        // Redirigez l'utilisateur vers la page de déconnexion (deconnexion.html) ou une autre page de votre choix
+        window.location.href = "deconnexion.html";
+    });
+});
+</script>
+    <footer>
+        <p>&copy; 2023 Gestion de Parking. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

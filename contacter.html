@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous - Gestion de Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Contactez-nous</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="reservation.html">Réserver une Place</a></li>
+            <li><a href="tableau-de-bord.html">Tableau de Bord</a></li>
+             <!-- Lien actif pour la page de contact -->
+        </ul>
+    </nav>
+    <section>
+        <h2>Nous Contacter</h2>
+        <p>Si vous avez des questions, des commentaires ou des préoccupations, n'hésitez pas à nous contacter en utilisant le formulaire ci-dessous :</p>
+        <form id="contact-form">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit" class="cta-button">Envoyer</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2023 Gestion de Parking. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

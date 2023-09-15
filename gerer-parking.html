@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+  
+    var parkings = [
+        { nom: "Parking A", capacite: 100, emplacement: "Emplacement A", tauxHoraire: 2.00 },
+        
+    ];
+
+    function afficherParkings() {
+        var tbody = document.querySelector("table tbody");
+
+        
+        tbody.innerHTML = "";
+
+        
+        for (var i = 0; i < parkings.length; i++) {
+            var parking = parkings[i];
+
+            var row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${parking.nom}</td>
+                <td>${parking.capacite}</td>
+                <td>${parking.emplacement}</td>
+                <td>${parking.tauxHoraire} DT</td>
+                <td>
+                    <button onclick="editerParking(${i})">Éditer</button>
+                    <button onclick="supprimerParking(${i})">Supprimer</button>
+                </td>
+            `;
+
+            tbody.appendChild(row);
+        }
+    }
+
+    function editerParking(index) {
+        
+        var parking = parkings[index];
+
+        
+        var nouveauNom = prompt("Nouveau nom du parking :", parking.nom);
+        if (nouveauNom !== null) {
+            parking.nom = nouveauNom;
+            afficherParkings(); 
+        }
+    }
+
+    function supprimerParking(index) {
+        
+        var confirmer = confirm("Êtes-vous sûr de vouloir supprimer ce parking ?");
+        if (confirmer) {
+            parkings.splice(index, 1);
+            afficherParkings(); 
+        }
+    }
+
+    function ajouterParking() {
+        
+        var nom = prompt("Nom du nouveau parking :");
+        var capacite = parseInt(prompt("Capacité du nouveau parking :"));
+        var emplacement = prompt("Emplacement du nouveau parking :");
+        var tauxHoraire = parseFloat(prompt("Taux horaire du nouveau parking :"));
+
+        if (nom && !isNaN(capacite) && emplacement && !isNaN(tauxHoraire)) {
+            var nouveauParking = {
+                nom: nom,
+                capacite: capacite,
+                emplacement: emplacement,
+                tauxHoraire: tauxHoraire
+            };
+
+            parkings.push(nouveauParking);
+            afficherParkings(); 
+        } else {
+            alert("Veuillez remplir tous les champs correctement.");
+        }
+    }
+
+   
+    afficherParkings();
+</script>
+
+<body>
+    <header>
+    <h1>Gérer Parking</h1>
+</header>
+    <section>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom du Parking</th>
+            <th>Capacité</th>
+            <th>Emplacement</th>
+            <th>Taux Horaire</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            <td>Parking A</td>
+            <td>100</td>
+            <td>Emplacement A</td>
+            <td>2.00 DT</td>
+            <td>
+                <button onclick="editerParking('Parking A')">Éditer</button>
+                <button onclick="supprimerParking('Parking A')">Supprimer</button>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+</section>
+
+
+
+
+
+
+</body>
+<button id="ajouter-parking-button" onclick="ajouterParking()">Ajouter Parking</button>
+
+<footer>
+    <p>&copy; 2023 Gestion de Parking. Tous droits réservés.</p>
+</footer>
+
+</html>

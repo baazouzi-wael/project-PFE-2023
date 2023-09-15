@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de Parking - Gestion de Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+    
+    <script>
+     // Fonction pour valider le formulaire de réservation et rediriger vers la page de confirmation avec les données
+function validerReservation() {
+    var date = document.getElementById("date").value;
+    var startTime = document.getElementById("start-time").value;
+    var endTime = document.getElementById("end-time").value;
+
+    // Vérifiez si les champs du formulaire sont vides
+    if (date === "" || startTime === "" || endTime === "") {
+        alert("Veuillez remplir tous les champs du formulaire.");
+        return;
+    }
+
+    // Redirigez l'utilisateur vers la page de confirmation avec les paramètres appropriés dans l'URL
+    window.location.href = "confirmation.html?date=" + date + "&startTime=" + startTime + "&endTime=" + endTime;
+
+
+            // Calcul du montant total en fonction de la durée de la réservation
+            var heureDebut = new Date(startTime);
+            var heureFin = new Date(endTime);
+            var dureeEnHeures = (heureFin - heureDebut) / 3600000; // Conversion en heures (1 heure = 3600000 millisecondes)
+            var prixParHeure = 2.00;
+            var montantTotal = dureeEnHeures * prixParHeure;
+
+            // Redirigez l'utilisateur vers la page de confirmation avec les paramètres appropriés
+            window.location.href = "confirmation.html?date= " + date + "&startTime=" + startTime + "&endTime=" + endTime + "&montant=" + montantTotal;
+}   
+    </script>
+
+
+  
+
+ 
+
+
+
+
+<body>
+    <header>
+        <h1>Réservation de Parking</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="profile.html">Accueil</a></li>
+            <li><a href="apropos.html">À Propos</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Formulaire de Réservation</h2>
+        <form id="reservation-form">
+            <label for="date">Date :</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="start-time">Heure de Début :</label>
+            <input type="time" id="start-time" name="start-time" required>
+
+            <label for="end-time">Heure de Fin :</label>
+            <input type="time" id="end-time" name="end-time" required>
+
+            <!-- Autres champs de formulaire ici -->
+
+             <button type="button" id="reserve-button" onclick="validerReservation()">Réserver</button>
+        </form>
+    </section>
+        </form>
+        <div id="reserve-button"></div>
+    </section>
+    
+    
+
+
+    <footer>
+        <p>&copy; 2023 Gestion de Parking. Tous droits réservés.</p>
+    </footer>
+ 
+
+</body>
+</html>

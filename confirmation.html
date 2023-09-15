@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation - Gestion de Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+
+
+
+ // Fonction pour valider le formulaire de paiement
+ function validerPaiement() {
+            var numeroCarte = document.getElementById("numero-carte").value;
+            var dateExpiration = document.getElementById("date-expiration").value;
+            var codeSecurite = document.getElementById("code-securite").value;
+
+            // Validation du numéro de carte (egale a 16 )
+            if (numeroCarte.length < 16) {
+                alert("Le numéro de carte  doit être 16 caractères.");
+                return;
+            }
+
+            // Validation de la date d'expiration (type date)
+            var expirationDate = new Date(dateExpiration);
+            var currentDate = new Date();
+            if (isNaN(expirationDate) || expirationDate <= currentDate) {
+                alert("La date d'expiration de la carte n'est pas valide.");
+                return;
+            }
+
+            // Validation du code de sécurité (max. 3 chiffres)
+            if (codeSecurite < 0 || codeSecurite > 999) {
+                alert("Le code de sécurité doit être un nombre à 3 chiffres.");
+                return;
+            }
+
+           
+
+            // Affichez un message de paiement réussi
+            alert("Votre paiement a été effectué avec succès.");
+
+            
+        }
+
+// Fonction pour extraire les paramètres de l'URL
+function obtenirParametresURL() {
+
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var date = urlParams.get("date");
+    var startTime = urlParams.get("startTime");
+    var endTime = urlParams.get("endTime");
+
+                  // Calcul du montant total en fonction de la durée de la réservation
+var heureDebut = new Date(startTime);
+var heureFin = new Date(endTime);
+
+console.log("Heure de début : " + heureDebut);
+console.log("Heure de fin : " + heureFin);
+
+var dureeEnMillisecondes = heureFin - heureDebut;
+console.log("Durée en millisecondes : " + dureeEnMillisecondes);
+
+var dureeEnHeures = dureeEnMillisecondes / 3600000; // Conversion en heures (1 heure = 3600000 millisecondes)
+console.log("Durée en heures : " + dureeEnHeures);
+
+var prixParHeure = 2.00;
+var montantTotal = dureeEnHeures * prixParHeure;
+console.log("Montant total : " + montantTotal);
+
+    // Affichez les détails de la réservation et le montant total
+    document.getElementById("date-reservation").textContent = date;
+    document.getElementById("start-time-reservation").textContent = startTime;
+    document.getElementById("end-time-reservation").textContent = endTime;
+    document.getElementById("montant-payer").textContent = montantTotal.toFixed(2) + " DT"; // Format du montant
+}
+
+// Appelez la fonction pour extraire les paramètres de l'URL lorsque la page est chargée
+window.addEventListener("load", obtenirParametresURL);
+// Fonction pour rediriger vers la page de paiement
+function redirectionPaiement() {
+    // Redirigez l'utilisateur vers la page de paiement
+    window.location.href = "paiment.html";
+}
+
+
+
+
+
+
+</script>
+
+
+<body>
+    <header>
+        <h1>Confirmation</h1>
+    </header>
+    <nav>
+        <ul>
+         
+            <li><a href="tableau-de-bord.html">Tableau de Bord</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            
+            <li><a href="contact.html">Contactez-nous</a></li>
+            <li><a href="deconnexion.html">Déconnexion</a></li>
+          
+        
+           
+        </ul>
+    </nav>
+    <section>
+      
+        <h2>Confirmation de Réservation</h2>
+        <p>Date de Réservation : <span id="date-reservation"></span></p>
+        <p>Heure de Début : <span id="start-time-reservation"></span></p>
+        <p>Heure de Fin : <span id="end-time-reservation"></span></p>
+        <p>Montant à Payer : <span id="montant-payer"></span></p>
+<!-- Ajoutez d'autres détails de la réservation si nécessaire -->
+
+        <p>Merci d'avoir réservé une place de parking avec nous. Votre réservation a été enregistrée avec succès.</p>
+        <p> Pour compliter  votre reservation tu doit payer merci de remplir les champs  :</p>
+        <ul id="reservation-details">
+      
+        </ul>
+        <p>Si vous avez des questions ou des préoccupations, n'hésitez pas à nous contacter.</p>
+        <section>
+            <h2>Page de Confirmation</h2>
+            <form id="formulaire-de-paiement">
+               
+            
+                <label for="numero-carte">Numéro de Carte :</label>
+                <input type="text" id="numero-carte" name="numero-carte" required>
+            
+                <label for="date-expiration">Date d'Expiration :</label>
+                <input type="date" id="date-expiration" name="date-expiration" required>
+            
+                <label for="cvv">CVV :</label>
+                <input type="text" id="cvv" name="cvv" required>
+            
+                <button type="button" id="payer-button" onclick="redirectionPaiement()">Payer</button>
+
+            </form>
+        </section>
+
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Gestion de Parking. Tous droits réservés.</p>
+    </footer>
+    
+</body>
+</html>

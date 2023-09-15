@@ -1,0 +1,308 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  
+}
+
+header {
+    background-color: #333333;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+nav {
+    background-color: #444;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+section {
+    padding: 40px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+section p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+section h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+form {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #555;
+}
+
+
+
+
+
+.logout-button {
+    background-color: #ff3333; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+.logout-button:hover {
+    background-color: #cc0000; 
+}
+
+
+
+
+
+
+
+#inscription-button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px; 
+}
+
+#inscription-button:hover {
+    background-color: #4CAF50; 
+}
+
+
+
+
+
+
+#retour-connexion-button {
+    background-color: #f44336; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+
+#retour-connexion-button:hover {
+    background-color: #d32f2f; 
+}
+
+
+
+
+
+
+#connexion-button {
+    background-color: #3498db; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+#connexion-button:hover {
+    background-color: #2980b9; 
+}
+
+
+
+
+#reserve-button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+#reserve-button:hover {
+    background-color: #45a049; 
+}
+
+
+
+
+
+ 
+#payer-button{
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px; 
+}
+
+#payer-button:hover {
+    background-color: #45a049; 
+}
+
+
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+#ajouter-parking-button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+#ajouter-parking-button:hover {
+    background-color: #218838;
+}
+
+
+
+
+footer {
+    margin-top: auto;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+   
+}
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 40px 0;
+    }
+
+    nav ul {
+        padding: 5px 0;
+    }
+
+    section {
+        padding: 20px;
+    }
+}

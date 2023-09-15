@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creation De Compte - Gestion de Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+        // Fonction pour vérifier l'inscription
+        function verifierInscription() {
+            var nom = document.getElementById("nom").value;
+            var prenom = document.getElementById("prenom").value;
+            var nomUtilisateur = document.getElementById("nom-utilisateur").value;
+            var email = document.getElementById("email").value;
+            var motDePasse = document.getElementById("mot-de-passe").value;
+            var repeterMotDePasse = document.getElementById("repeter-mot-de-passe").value;
+            var telephone = document.getElementById("telephone").value;
+
+            // Vérifiez si tous les champs sont remplis
+            if (nom === "" || prenom === "" || nomUtilisateur === "" || email === "" || motDePasse === "" || repeterMotDePasse === "" || telephone === "") {
+                alert("Veuillez remplir tous les champs.");
+                return;
+            }
+
+            // Vérifiez si le nom et le prénom ont moins de 20 caractères
+            if (nom.length > 20 || prenom.length > 20) {
+                alert("Le nom et le prénom doivent avoir moins de 20 caractères.");
+                return;
+            }
+
+            // Vérifiez si le nom d'utilisateur contient des chiffres
+            if (/\d/.test(nomUtilisateur)) {
+                alert("Le nom d'utilisateur ne doit pas contenir de chiffres.");
+                return;
+            }
+
+            // Vérifiez si l'email contient "@"
+            if (!email.includes("@")) {
+                alert("L'email doit contenir '@'.");
+                return;
+            }
+
+            // Vérifiez si le mot de passe a au moins 8 caractères
+            if (motDePasse.length < 8) {
+                alert("Le mot de passe doit comporter au moins 8 caractères.");
+                return;
+            }
+
+            // Vérifiez si le mot de passe correspond à la répétition du mot de passe
+            if (motDePasse !== repeterMotDePasse) {
+                alert("Les mots de passe ne correspondent pas.");
+                return;
+            }
+
+            // Vérifiez si le numéro de téléphone a exactement 8 chiffres
+            if (telephone.length !== 8 || !/^\d+$/.test(telephone)) {
+                alert("Le numéro de téléphone doit contenir 8 chiffres.");
+                return;
+            }
+
+            // Vous pouvez ajouter ici la logique d'enregistrement de l'utilisateur
+            alert("Inscription réussie !");
+
+            // Redirigez l'utilisateur vers la page de connexion ou toute autre page nécessaire
+            window.location.href = "connexion.html";
+        }
+        // Fonction pour rediriger vers la page de connexion
+function redirectionConnexion() {
+    window.location.href = "connexion.html";
+}
+
+    </script>
+<body>
+    <header>
+      <h1>Creer votre compte </h1>
+    </header>
+    
+    <section>
+        <h2>Inscription</h2>
+        <form>
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required><br><br>
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required><br><br>
+
+            <label for="nom-utilisateur">Nom d'Utilisateur :</label>
+            <input type="text" id="nom-utilisateur" name="nom-utilisateur" required><br><br>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="mot-de-passe">Mot de Passe :</label>
+            <input type="password" id="mot-de-passe" name="mot-de-passe" required><br><br>
+
+            <label for="repeter-mot-de-passe">Répéter le Mot de Passe :</label>
+            <input type="password" id="repeter-mot-de-passe" name="repeter-mot-de-passe" required><br><br>
+
+            <label for="telephone">Téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" required><br><br>
+
+            <button type="button" id="inscription-button" onclick="verifierInscription()">S'Inscrire</button>
+<button type="button" id="retour-connexion-button" onclick="redirectionConnexion()">Retour à la Connexion</button>
+
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2023 Gestion de Parking. Tous droits réservés.</p>
+    </footer>
+    
+</body>
+</html>

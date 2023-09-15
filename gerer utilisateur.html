@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Gestion de Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+  
+  var Utilisateur = [
+      { id: "001",Nom: "baazouzi wael", AdressEmail: "rivalosmario@gmail.com", Rôle: "utilisateur", Matriculevoiture: "246 TU 12", Numtelephone:"+216 92 709 773" },
+      
+  ];
+
+  function afficherUtilisateur() {
+      var tbody = document.querySelector("table tbody");
+
+      
+      tbody.innerHTML = "";
+
+      
+      for (var i = 0; i < Utilisateur.length; i++) {
+          var Utilisateur = Utilisateurs[i];
+
+          var row = document.createElement("tr");
+          row.innerHTML = `
+              <td>${Utilisateur.id}</td>
+              <td>${Utilisateur.Nom}</td>
+              <td>${Utilisateur.AdressEmail}</td>
+              <td>${Utilisateur.Rôle} </td>
+              <td>${Utilisateur.Matriculevoiture}</td>
+              <td>${utilisateur.Numtelephone}</td>
+             <td>  <button  onclick="editerUtilisateur(${i})">Modifier Utilisateur</button>
+                   <button  onclick="supprimerUtilisateur(${i})">Supprimer Utilisateur</button>
+             </td>
+          `;
+
+          tbody.appendChild(row);
+      }
+  }
+
+  function editerUtilisateur(index) {
+      
+      var Utilisateur = Utilisateurs[index];
+
+      
+      var nouveauNom = prompt("Nouveau nom du utilisateurs :", Utilisateur.nom);
+      if (nouveauNom !== null) {
+          Utilisateur.nom = nouveauNom;
+          afficherUtilisateur(); 
+      }
+  }
+
+  function supprimerUtilisateur(index) {
+      
+      var confirmer = confirm("Êtes-vous sûr de vouloir supprimer ce Utilisateur?");
+      if (confirmer) {
+          Utilisateurs.splice(index, 1);
+          afficherUtilisateur(); 
+      }
+  }
+
+  function ajouterUtilisateur() {
+      
+      
+    var id = prompt("nouveau id d\'utilisateur :");
+      var nom = prompt("Nom du nouveau utilisateur :");
+      var AdressEmail = prompt("Email du nouveau utilisateur :");
+      var Rôle = prompt("rôle du nouveau utilisateur :");
+      var Matriculevoiture = prompt("La matricule  du nouveau utilisateur :");
+      var Numtelephone = prompt("numero du telephone du nouveau utilisateur");
+
+      if (id && nom && AdressEmail  && Rôle && Matriculevoiture && Numtelephone) {
+          var nouveauUtlisateur = {
+            id: id,
+              nom: nom,
+              AdressEmail: AdressEmail,
+              Rôle: Rôle,
+              Matriculevoiture: Matriculevoiture,
+              Numtelephone: Numtelephone
+          };
+
+          Utilisateur.push(nouveauUtlisateur);
+          afficherUtilisateur(); 
+      } else {
+          alert("Veuillez remplir tous les champs correctement.");
+      }
+  }
+
+ 
+  afficherUtilisateur();
+</script>
+<body >
+    <header>
+        <h1>Bienvenue sur notre Système de Gestion des Utilisateurs</h1>
+    
+    </header>
+
+  
+    <section>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nom </th>
+                    <th>Adress E-mail</th>
+                    <th>Rôle</th>
+                    <th>Matricule-voiture</th>
+                    <th>Num-telephone</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>001</td>
+                    <td>baazouzi wael</td>
+                    <td>rivalosmario@gmail.com</td>
+                    <td>utilisateur</td>
+                    <td>246 TU 12</td>
+                    <td>+216 92 709 773</td>
+                    <td>
+                        <button id="modifeier-utilisateur" onclick="editerUtilisateur(index)">Modifier Utilisateur</button>
+                        <button id="supprimer-utilisateur" onclick="supprimerUtilisateur(index) ">Supprimer Utilisateur</button>
+                    </td>
+                   
+                </tr>
+                
+            </tbody>
+        </table>
+        <form>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom">
+            <label for="email">Adresse E-mail</label>
+            <input type="email" id="email" name="email">
+            <label for="role">Rôle</label>
+            <select type="role" id="role" >
+                <option value="utilisateur">Utilisateur</option>
+                <option value="admnistrateur">Admnistrateur</option>
+            <label for="recherche">Recherche :</label>
+            <input type="text" id="recherche" name="recherche">
+            <button type="submit">Rechercher</button>
+        </form>
+        </section>
+        <button id="ajouter-utilisateur" onclick="ajouterUtilisateur()">Ajouter Utilisateur</button>
+
+</body>
+
+<footer>
+    <p>&copy; 2023 Gestion de Parking. Tous droits réservés.</p>
+</footer>
+</html>
